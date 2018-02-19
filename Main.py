@@ -1,5 +1,8 @@
+import datetime
 import shlex
 from subprocess import Popen, PIPE, STDOUT
+
+import time
 
 
 def get_simple_cmd_output(cmd, stderr=STDOUT):
@@ -29,14 +32,20 @@ def main():
 
     # sample hard code for test
     host = 'google.com'
-    file.writelines(str(host + ',' + str(get_ping_time(host)))+",,")
+    file.writelines(
+        str(str(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')) + ',' + host + ',' + str(
+            get_ping_time(host))) + ",,")
 
     # sample hard code for test
     host = '79.175.133.142'
-    file.writelines(str(host + ',' + str(get_ping_time(host)))+",,")
+    file.writelines(
+        str(str(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')) + ',' + host + ',' + str(
+            get_ping_time(host))) + ",,")
 
     host = 'besparapp.com'
-    file.write(str(host + ',' + str(get_ping_time(host)))+"\n")
+    file.write(
+        str(str(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')) + ',' + host + ',' + str(
+            get_ping_time(host))) + "\n")
 
 
 if __name__ == '__main__':
