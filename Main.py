@@ -28,7 +28,7 @@ def get_ping_time(host):
 
 def main():
     # log to file
-    file = open("log.txt", "a+")
+    file = open("./log.txt", "a+")
 
     # sample hard code for test
     host = 'google.com'
